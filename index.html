@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopEasy Premium Template</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+<style>
+/* ===== Hero Section ===== */
+.hero-img {height: 100vh; object-fit: cover; transform: scale(1.1) rotateY(10deg); transition: transform 1.5s ease-in-out;}
+.carousel-item.active .hero-img {transform: scale(1) rotateY(0deg);}
+.carousel-caption {background: rgba(0,0,0,0.5); padding:20px; border-radius:15px;}
+.typing {display:inline-block; overflow:hidden; white-space:nowrap; border-right:3px solid #000; font-size:2.5rem; font-weight:bold; background: linear-gradient(90deg,#ff6a00,#ee0979,#007bff); -webkit-background-clip: text; -webkit-text-fill-color: transparent; width:0ch; animation:typing 4s steps(18,end) forwards, blink 0.7s step-end infinite;}
+@keyframes typing {from {width:0ch;} to {width:18ch;}} 
+@keyframes blink {50% {border-color:transparent;}}
+
+/* ===== Product Cards ===== */
+.product-card {transition: transform 0.3s ease, box-shadow 0.3s ease; position:relative;}
+.product-card:hover {transform: translateY(-10px) scale(1.05); box-shadow:0 15px 25px rgba(0,0,0,0.3);}
+.card-img-top {height:200px; object-fit:cover;}
+.sale-badge {position:absolute; top:10px; left:10px; background:#ff4c4c; color:#fff; padding:5px 10px; font-weight:bold; border-radius:5px; font-size:0.9rem;}
+.rating {color:#ffc107; margin-bottom:5px;}
+.btn-cart {position:relative; overflow:hidden; transition:0.3s;}
+.btn-cart::after {content:""; position:absolute; top:0; left:-100%; width:100%; height:100%; background:rgba(255,255,255,0.3); transition:0.4s;}
+.btn-cart:hover::after {left:0;}
+.btn-cart:hover {transform:scale(1.05);}
+
+/* ===== Footer ===== */
+.footer-icons a {color:white; margin:0 10px; font-size:20px; transition:color 0.3s;}
+.footer-icons a:hover {color:#0d6efd;}
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <a class="navbar-brand fw-bold" href="https://www.shopeasy.in">ShopEasy</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto">
+        <!-- Home Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Home</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#home-main">Main Home</a></li>
+            <li><a class="dropdown-item" href="#home-feature">Features</a></li>
+            <li><a class="dropdown-item" href="#home-testimonial">Testimonials</a></li>
+          </ul>
+        </li>
+        <!-- Shop Dropdown -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">Shop</a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#all-products">All Products</a></li>
+            <li><a class="dropdown-item" href="#electronics">Electronics</a></li>
+            <li><a class="dropdown-item" href="#fashion">Fashion</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About Us</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- 🔍 Search Bar Section -->
+<div class="container mt-4">
+  <form class="d-flex mb-3" role="search">
+    <input type="text" id="searchBox" class="form-control" placeholder="Search products..." aria-label="Search products">
+  </form>
+<!-- Searchable Product List --> 
+ <div class="row" id="productList"> 
+  <div class="col-md-3 product-card p-3 border text-center">Shoes</div> 
+  <div class="col-md-3 product-card p-3 border text-center">T-Shirt</div> 
+  <div class="col-md-3 product-card p-3 border text-center">Mobile</div> 
+  <div class="col-md-3 product-card p-3 border text-center">Laptop</div> 
+</div> </div>
+  
+<!-- Hero Carousel -->
+<div id="heroCarousel" class="carousel slide carousel-fade" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.unsplash.com/photo-1503264116251-35a269479413?w=1200" class="d-block w-100 hero-img" alt="Slide 1" loading="lazy">
+      <div class="carousel-caption">
+        <h1 class="typing">Welcome to ShopEasy</h1>
+        <p>Best deals on electronics, fashion, and more!</p>
+        <a href="#" class="btn btn-primary btn-lg">Shop Now</a>
+      </div>
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=1200" class="d-block w-100 hero-img" alt="Slide 2" loading="lazy">
+      <div class="carousel-caption">
+        <h1 class="typing">Biggest Discounts</h1>
+        <p>Up to 50% off on top brands!</p>
+      </div>
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#heroCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#heroCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+
+<!-- Featured Products -->
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Featured Products</h2>
+  <div class="row g-4">
+
+    <!-- Example Product -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-20%</span>
+        <img src="https://images.unsplash.com/photo-1592169813474-dd0c8e52e3bf?w=600" class="card-img-top" alt="Smartphone" loading="lazy">
+        <div class="card-body text-center">
+          <h5 class="card-title">Smartphone X100</h5>
+          <p class="card-text">128GB Storage, 6GB RAM, AMOLED Display</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹12,999 <span class="text-muted text-decoration-line-through">₹15,999</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 2 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-15%</span>
+        <img src="https://images.unsplash.com/photo-1585298723682-7115561c51b7?w=600" class="card-img-top" alt="Headphones">
+        <div class="card-body text-center">
+          <h5 class="card-title">Wireless Headphones</h5>
+          <p class="card-text">Noise Cancellation, 20h Battery Life</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹1,999 <span class="text-muted text-decoration-line-through">₹2,499</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 3 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-10%</span>
+        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?w=600" class="card-img-top" alt="Smart Watch">
+        <div class="card-body text-center">
+          <h5 class="card-title">Smart Watch Pro</h5>
+          <p class="card-text">Heart Rate Monitor, Fitness Tracker, 7 Days Battery</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹3,499 <span class="text-muted text-decoration-line-through">₹4,199</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 4 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-10%</span>
+        <img src="https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?w=600" class="card-img-top" alt="Laptop">
+        <div class="card-body text-center">
+          <h5 class="card-title">Laptop Pro 15"</h5>
+          <p class="card-text">Intel i7, 16GB RAM, 512GB SSD, Retina Display</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹45,000 <span class="text-muted text-decoration-line-through">₹50,000</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 5 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-25%</span>
+        <img src="https://images.unsplash.com/photo-1526170375885-4d8ecf77b99f?w=600" class="card-img-top" alt="Camera">
+        <div class="card-body text-center">
+          <h5 class="card-title">DSLR Camera</h5>
+          <p class="card-text">24MP, 4K Video, WiFi Enabled</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹29,999 <span class="text-muted text-decoration-line-through">₹39,999</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 6 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-18%</span>
+        <img src="https://images.unsplash.com/photo-1709258228137-19a8c193be39?q=80&w=811&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Sneakers">
+        <div class="card-body text-center">
+          <h5 class="card-title">Running Sneakers</h5>
+          <p class="card-text">Breathable, Lightweight, Shock Absorb</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹2,499 <span class="text-muted text-decoration-line-through">₹2,999</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 7 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-30%</span>
+        <img src="https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600" class="card-img-top" alt="Jacket">
+        <div class="card-body text-center">
+          <h5 class="card-title">Winter Jacket</h5>
+          <p class="card-text">Waterproof, Warm, Stylish</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-half"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹3,999 <span class="text-muted text-decoration-line-through">₹5,699</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Product 8 -->
+    <div class="col-sm-6 col-md-3">
+      <div class="card h-100 product-card">
+        <span class="sale-badge">-12%</span>
+        <img src="https://images.unsplash.com/photo-1530432999454-016a47c78af3?q=80&w=736&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="card-img-top" alt="Sunglasses">
+        <div class="card-body text-center">
+          <h5 class="card-title">Premium Sunglasses</h5>
+          <p class="card-text">UV Protection, Polarized, Unisex</p>
+          <div class="rating">
+            <i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i>
+            <i class="bi bi-star-fill"></i><i class="bi bi-star"></i><i class="bi bi-star"></i>
+          </div>
+          <p class="card-text text-success fw-bold">₹1,499 <span class="text-muted text-decoration-line-through">₹1,699</span></p>
+          <a href="#" class="btn btn-outline-primary btn-cart">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- Footer -->
+<footer class="bg-dark text-white text-center mt-5 p-4">
+  <p>© 2025 ShopEasy | All Rights Reserved</p>
+  <div class="footer-icons">
+    <a href="#"><i class="bi bi-facebook"></i></a>
+    <a href="#"><i class="bi bi-instagram"></i></a>
+    <a href="#"><i class="bi bi-twitter"></i></a>
+    <a href="#"><i class="bi bi-linkedin"></i></a>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  const searchBox = document.getElementById('searchBox');
+  // Select both search list products and featured product cards
+  const products = document.querySelectorAll('#productList .product-card, .container .card.product-card');
+
+  searchBox.addEventListener('keyup', function() {
+    const query = searchBox.value.toLowerCase();
+    products.forEach(product => {
+      const text = product.textContent.toLowerCase();
+      // ✅ FIX: use "" instead of "block" to keep Bootstrap grid intact
+      product.style.display = text.includes(query) ? "" : "none";
+    });
+  });
+</script>
+</body>
+</html>
