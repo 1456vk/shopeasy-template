@@ -19,3 +19,10 @@ It includes a hero carousel, featured product cards, a live search bar, and a mo
 ShopEasy/
 │── index.html # Main homepage
 │── README.md # Project documentation
+## 📸 Screenshots
+
+### Homepage Preview
+![Homepage](Screenshot%20(920).png)
+
+### Product Section
+![Products](Screenshot%20(922).png)
